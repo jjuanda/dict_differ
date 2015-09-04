@@ -1,6 +1,0 @@
-dict_differ.egg-info/PKG-INFO
-dict_differ.egg-info/SOURCES.txt
-dict_differ.egg-info/dependency_links.txt
-dict_differ.egg-info/pbr.json
-dict_differ.egg-info/requires.txt
-dict_differ.egg-info/top_level.txt
