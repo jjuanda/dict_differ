@@ -4,15 +4,16 @@
 
 class DictDiffer(object):
     """docstring for DictDiffer"""
-    def __init__(self, dbase, dnew):
+    def __init__(self, dbase, dnew, ign_keys=[]):
         super(DictDiffer, self).__init__()
-        self.dbase = dbase
-        self.dnew  = dnew
-        self.ccmp = None
-    
-    def compare(self, ign_keys=[]):
-        kbase = set(self.dbase.keys()) - set(ign_keys)
-        knew  = set(self.dnew.keys()) - set(ign_keys)
+        self.dbase    = dbase
+        self.dnew     = dnew
+        self.ccmp     = None
+        self.ign_keys = ign_keys
+
+    def compare(self):
+        kbase = set(self.dbase.keys()) - set(self.ign_keys)
+        knew  = set(self.dnew.keys()) - set(self.ign_keys)
 
         common_keys  = kbase.intersection(knew)
         new_keys     = knew - kbase
@@ -67,4 +68,4 @@ if __name__ == '__main__':
   'dt_created': datetime.datetime(2014, 5, 14, 17, 9, 56, 890000)}]
 
     dd=DictDiffer(qq[0], qq[1])
-    pprint(dd.compare()) 
+    pprint(dd.compare())
